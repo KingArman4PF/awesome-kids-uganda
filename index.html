@@ -11,27 +11,29 @@
     <!-- Navigation -->
     <nav class="glass-nav">
         <div class="logo">
-            <div class="logo-icon">AK</div>
+            <img src="assets/logo.png" alt="Awesome Kids Uganda Logo" class="logo-img">
             <span>Awesome Kids <span class="text-yellow">Uganda</span></span>
         </div>
         <div class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">What We Do</a>
-            <a href="#">Our Team</a>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#programs">What We Do</a>
+            <a href="#team">Our Team</a>
+            <a href="#contact">Contact</a>
         </div>
-        <button class="btn btn-primary glow-button">Donate Now</button>
+        <button class="btn btn-primary glow-button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            Donate Now
+        </button>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <!-- Floating Parallax Elements -->
-        <div class="floating-element plane" data-speed="0.1">✈️</div>
-        <div class="floating-element cloud" data-speed="-0.05">☁️</div>
-        <div class="floating-element heart" data-speed="0.08">💛</div>
+    <section id="home" class="hero">
+        <div class="floating-element shape-circle" data-speed="0.1"></div>
+        <div class="floating-element shape-square" data-speed="-0.05"></div>
+        <div class="floating-element shape-triangle" data-speed="0.08"></div>
 
         <div class="hero-container">
-            <!-- Text Content -->
             <div class="hero-text reveal">
                 <h1>
                     Building a <br>
@@ -48,21 +50,19 @@
                     We improve the lives of orphans and other vulnerable children, adolescents, and vulnerable families through love, care, education, and empowerment.
                 </p>
                 <div class="hero-buttons reveal">
-                    <button class="btn btn-solid">❤️ Donate Now</button>
-                    <button class="btn btn-outline">👥 Get Involved</button>
+                    <button class="btn btn-solid">Donate Now</button>
+                    <button class="btn btn-outline">Get Involved</button>
                 </div>
             </div>
 
-            <!-- Visual Content (The Blob) -->
             <div class="hero-visual reveal">
                 <div class="blob-container">
-                    <!-- Placeholder for the children's photo -->
-                    
+                    <img src="assets/hero-children.jpg" alt="Smiling Ugandan children" class="blob-image">
                 </div>
-                
-                <!-- Floating Location Badge -->
                 <div class="location-badge">
-                    <div class="badge-icon">📍</div>
+                    <div class="badge-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
                     <div>
                         <p class="badge-title">Located in</p>
                         <p class="badge-subtitle">Wakiso District, Uganda</p>
@@ -72,53 +72,289 @@
         </div>
     </section>
 
-    <!-- Bento Grid: What We Do -->
-    <section class="bento-section">
+    <!-- Leadership Team Section (Moved up) -->
+    <section id="leadership" class="section">
         <div class="section-header reveal">
-            <h2>What We Stand For</h2>
-            <p>Holistic programs designed to uplift and empower.</p>
+            <h2>Our Leadership Team</h2>
+            <p>Passionate people. A greater purpose.</p>
         </div>
-
-        <div class="bento-grid">
-            <!-- Large Card 1 -->
-            <div class="bento-card large-card reveal">
-                <div class="card-icon bg-yellow">🛡️</div>
-                <div>
-                    <h3>Child Care & Protection</h3>
-                    <p>We provide a safe, loving, and nurturing environment for children, ensuring their fundamental rights are met.</p>
+        <div class="leadership-grid">
+            <!-- Denis -->
+            <div class="team-card horizontal reveal">
+                <div class="team-img-wrapper">
+                    <img src="assets/team-denis.jpg" alt="Mayinja Denis Andrew" class="team-img">
                 </div>
-                <div class="card-stat">1,240 Children Protected →</div>
+                <div class="team-info">
+                    <h3>Mayinja Denis Andrew</h3>
+                    <p class="team-role">Executive Director</p>
+                    <p class="team-bio">Leads the organization's vision and ensures effective implementation of our programs and strategic goals.</p>
+                </div>
             </div>
-
-            <!-- Small Card 1 -->
-            <div class="bento-card reveal">
-                <div class="card-icon bg-blue">📚</div>
-                <h3>Education & Mentorship</h3>
-                <p>Empowering children through quality education and life skills.</p>
+            <!-- Solomon -->
+            <div class="team-card horizontal reveal">
+                <div class="team-img-wrapper">
+                    <img src="assets/team-solomon.jpg" alt="Solomon Kaweesa" class="team-img">
+                </div>
+                <div class="team-info">
+                    <h3>Solomon Kaweesa</h3>
+                    <p class="team-role">Director / Public Relations</p>
+                    <p class="team-bio">Builds partnerships, manages public relations, and strengthens community engagement and support.</p>
+                </div>
             </div>
-
-            <!-- Small Card 2 -->
-            <div class="bento-card reveal">
-                <div class="card-icon bg-yellow">🤝</div>
-                <h3>Family Support</h3>
-                <p>We strengthen vulnerable families in our community.</p>
-            </div>
-
-            <!-- Small Card 3 -->
-            <div class="bento-card reveal">
-                <div class="card-icon bg-blue">🏥</div>
-                <h3>Health & Wellbeing</h3>
-                <p>Promoting physical and mental health for children and families.</p>
-            </div>
-
-            <!-- Small Card 4 -->
-            <div class="bento-card reveal">
-                <div class="card-icon bg-yellow">💡</div>
-                <h3>Empowerment</h3>
-                <p>Equipping adolescents with skills for a brighter future.</p>
+            <!-- Norman -->
+            <div class="team-card horizontal reveal">
+                <div class="team-img-wrapper">
+                    <img src="assets/team-norman.jpg" alt="Norman Kawuma Busulwa" class="team-img">
+                </div>
+                <div class="team-info">
+                    <h3>Norman Kawuma Busulwa</h3>
+                    <p class="team-role">Programs Manager</p>
+                    <p class="team-bio">Oversees grants, fundraising, and resource mobilization to support our programs and long-term sustainability.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Our Story Section -->
+    <section id="about" class="section bg-baby-blue">
+        <div class="decor-shape decor-square"></div>
+        <div class="decor-shape decor-diamond"></div>
+        
+        <div class="story-container reveal">
+            <div class="story-text">
+                <h2>Our Story</h2>
+                <p>Awesome Kids Uganda was established by a team of dedicated persons who sacrifice a little from their earnings to respond to the challenges affecting children and families in underserved communities, including poverty, violence, abuse, neglect, child labor, school dropout, disability, family breakdown, and limited economic opportunities.</p>
+                <div class="story-icons">
+                    <div class="story-icon-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        <span>Education</span>
+                    </div>
+                    <div class="story-icon-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <span>Care</span>
+                    </div>
+                    <div class="story-icon-item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <span>Support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="story-image-wrapper">
+                <img src="assets/story-image.jpg" alt="Awesome Kids Uganda Team" class="story-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="programs" class="section">
+        <div class="section-header reveal">
+            <h2>What We Do</h2>
+            <p>Holistic programs designed to uplift and empower.</p>
+        </div>
+
+        <div class="programs-grid">
+            <!-- Card 1: Education -->
+            <div class="program-card reveal">
+                <div class="program-image-wrapper">
+                    <!-- IMAGE PLACEHOLDER: Education / Classroom -->
+                    <img src="assets/program-education.jpg" alt="Education program" class="program-image">
+                </div>
+                <div class="program-content">
+                    <div class="program-icon bg-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    </div>
+                    <h3>Education & Mentorship</h3>
+                    <p>Empowering children through quality education, scholastic materials, and life skills.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Health -->
+            <div class="program-card reveal">
+                <div class="program-image-wrapper">
+                    <!-- IMAGE PLACEHOLDER: Health / Medical Outreach -->
+                    <img src="assets/program-health.jpg" alt="Health program" class="program-image">
+                </div>
+                <div class="program-content">
+                    <div class="program-icon bg-yellow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <h3>Health & Wellbeing</h3>
+                    <p>Promoting physical and mental health, hygiene, and nutrition for children and families.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Family Support -->
+            <div class="program-card reveal">
+                <div class="program-image-wrapper">
+                    <!-- IMAGE PLACEHOLDER: Family / Community Support -->
+                    <img src="assets/program-family.jpg" alt="Family support program" class="program-image">
+                </div>
+                <div class="program-content">
+                    <div class="program-icon bg-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                    </div>
+                    <h3>Family Support</h3>
+                    <p>Strengthening vulnerable families through positive parenting and caregiver support.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Child Protection -->
+            <div class="program-card reveal">
+                <div class="program-image-wrapper">
+                    <!-- IMAGE PLACEHOLDER: Child Protection / Safe Space -->
+                    <img src="assets/program-protection.jpg" alt="Child protection program" class="program-image">
+                </div>
+                <div class="program-content">
+                    <div class="program-icon bg-yellow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Child Protection</h3>
+                    <p>Identification, prevention, and response to child abuse, neglect, and exploitation.</p>
+                </div>
+            </div>
+
+            <!-- Card 5: Empowerment -->
+            <div class="program-card reveal">
+                <div class="program-image-wrapper">
+                    <!-- IMAGE PLACEHOLDER: Empowerment / Skills Training -->
+                    <img src="assets/program-empowerment.jpg" alt="Empowerment program" class="program-image">
+                </div>
+                <div class="program-content">
+                    <div class="program-icon bg-blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3>Empowerment</h3>
+                    <p>Equipping adolescents and caregivers with vocational skills and livelihood support.</p>
+                </div>
+            </div>
+
+            <!-- Card 6: Advocacy -->
+            <div class="program-card reveal">
+                <div class="program-image-wrapper">
+                    <!-- IMAGE PLACEHOLDER: Advocacy / Community Awareness -->
+                    <img src="assets/program-advocacy.jpg" alt="Advocacy program" class="program-image">
+                </div>
+                <div class="program-content">
+                    <div class="program-icon bg-yellow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>Advocacy</h3>
+                    <p>Community awareness on children's rights and prevention of harmful practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Impact Section -->
+    <section class="section bg-baby-blue">
+        <div class="impact-container reveal">
+            <div class="impact-text">
+                <h2>Our Impact</h2>
+                <p>Since 2014, we have been dedicated to transforming the lives of vulnerable children and families in Uganda.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3 class="counter" data-target="10000">10,000+</h3>
+                    <p>Children Empowered</p>
+                </div>
+                <div class="impact-card">
+                    <h3 class="counter" data-target="50">50+</h3>
+                    <p>Communities Reached</p>
+                </div>
+                <div class="impact-card">
+                    <h3 class="counter" data-target="30">30+</h3>
+                    <p>Partners & Supporters</p>
+                </div>
+                <div class="impact-card">
+                    <h3>2014</h3>
+                    <p>Year of Establishment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- General Team Section -->
+    <section id="team" class="section">
+        <div class="section-header reveal">
+            <h2>Our Team</h2>
+            <p>Committed. Passionate. Making a Difference.</p>
+        </div>
+        <div class="leadership-grid">
+            <!-- Julius -->
+            <div class="team-card horizontal reveal">
+                <div class="team-img-wrapper">
+                    <img src="assets/team-julius.jpg" alt="Mugabe Julius Kataha" class="team-img">
+                </div>
+                <div class="team-info">
+                    <h3>Mugabe Julius Kataha</h3>
+                    <p class="team-role">Project Coordinator</p>
+                    <p class="team-bio">Leads and coordinates project activities to ensure smooth implementation and maximum impact in our communities.</p>
+                </div>
+            </div>
+            <!-- Natasha -->
+            <div class="team-card horizontal reveal">
+                <div class="team-img-wrapper">
+                    <img src="assets/team-natasha.jpg" alt="Natasha Victoria Nabbowa" class="team-img">
+                </div>
+                <div class="team-info">
+                    <h3>Natasha Victoria Nabbowa</h3>
+                    <p class="team-role">Finance Officer</p>
+                    <p class="team-bio">Manages financial resources with transparency and integrity to support our programs and beneficiaries.</p>
+                </div>
+            </div>
+            <!-- Josephine -->
+            <div class="team-card horizontal reveal">
+                <div class="team-img-wrapper">
+                    <img src="assets/team-josephine.jpg" alt="Nankabirwa Josephine" class="team-img">
+                </div>
+                <div class="team-info">
+                    <h3>Nankabirwa Josephine</h3>
+                    <p class="team-role">Education Officer</p>
+                    <p class="team-bio">Supports learning and education programs to ensure every child has access to quality education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
+        <div class="testimonial-container reveal">
+            <div class="quote-icon">“</div>
+            <blockquote>
+                When a child feels safe, supported, and valued, they can dream, learn, and become the best version of themselves.
+            </blockquote>
+            <p class="quote-author">Awesome Kids Uganda</p>
+            <p class="quote-sub">Every Child Matters</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/logo.png" alt="Awesome Kids Uganda Logo" class="footer-logo">
+                <p class="footer-tagline">Every Child Matters</p>
+                <p class="footer-desc">Building brighter futures through education, care, and opportunity.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#programs">Our Programs</a>
+                <a href="#team">Our Team</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Nabaziza Ward, Kyengera Town Council</p>
+                <p>Wakiso District, Uganda</p>
+                <p>+256 700 123 456</p>
+                <p>info@awesomekidsuganda.org</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Awesome Kids Uganda. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
