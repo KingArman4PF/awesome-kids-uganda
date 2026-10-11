@@ -18,13 +18,16 @@
 
 /* --- Reset & Base --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { 
+    width: 100%; 
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    max-width: 100vw; 
+}
 html { scroll-behavior: smooth; }
 body {
     font-family: var(--font-main);
     background-color: var(--bg-light);
     color: var(--dark-blue);
-    overflow-x: hidden;
-    max-width: 100vw; /* Prevents horizontal scroll on mobile */
     line-height: 1.6;
 }
 
@@ -54,11 +57,7 @@ section[id] {
     transition: transform 0.4s ease, background-color 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease;
 }
 
-/* Auto-Hide Logic Classes (Toggled by JS) */
-.glass-nav.nav-up {
-    transform: translateY(-100%);
-}
-
+.glass-nav.nav-up { transform: translateY(-100%); }
 .glass-nav.at-top {
     background: transparent;
     backdrop-filter: none;
@@ -83,7 +82,6 @@ section[id] {
     padding: 5px;
     z-index: 1001;
 }
-
 .hamburger span {
     display: block;
     width: 28px;
@@ -112,7 +110,6 @@ section[id] {
     box-shadow: 0 10px 25px rgba(250, 204, 21, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .floating-donate-btn:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(250, 204, 21, 0.7);
@@ -198,7 +195,6 @@ section[id] {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
-
 .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
 
 .team-img-wrapper { 
@@ -210,7 +206,6 @@ section[id] {
     border: 4px solid var(--bg-baby-blue);
     flex-shrink: 0;
 }
-
 .team-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 
 .team-info { text-align: center; }
@@ -244,7 +239,7 @@ section[id] {
 /* --- What We Do (Programs Grid) --- */
 .programs-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* The minmax fix */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -255,37 +250,30 @@ section[id] {
     border-radius: 20px;
     box-shadow: var(--shadow-soft);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* Keeps image contained */
+    overflow: hidden;
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 400px; /* Prevents card from collapsing */
+    min-height: 400px;
 }
-
-.program-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
+.program-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
 
 .program-image-wrapper {
     width: 100%;
-    height: 200px; /* Fixed height */
+    height: 200px;
     overflow: hidden;
-    flex-shrink: 0; /* Prevents wrapper from shrinking */
-    background-color: #e2e8f0; /* Fallback color if image is missing */
+    flex-shrink: 0;
+    background-color: #e2e8f0;
 }
 
 .program-image {
-    display: block; /* Removes bottom spacing */
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
-
-.program-card:hover .program-image {
-    transform: scale(1.05);
-}
+.program-card:hover .program-image { transform: scale(1.05); }
 
 .program-content {
     padding: 1.5rem;
@@ -303,21 +291,11 @@ section[id] {
     justify-content: center;
     margin-bottom: 1rem;
 }
-
 .program-icon.bg-blue { background: #dbeafe; color: var(--primary-blue); }
 .program-icon.bg-yellow { background: #fef9c3; color: #a16207; }
 
-.program-card h3 {
-    font-size: 1.2rem;
-    color: var(--dark-blue);
-    margin-bottom: 0.5rem;
-}
-
-.program-card p {
-    font-size: 0.9rem;
-    color: var(--text-gray);
-    line-height: 1.5;
-}
+.program-card h3 { font-size: 1.2rem; color: var(--dark-blue); margin-bottom: 0.5rem; }
+.program-card p { font-size: 0.9rem; color: var(--text-gray); line-height: 1.5; }
 
 /* --- Our Impact Section --- */
 .impact-container { max-width: 1200px; margin: 0 auto; text-align: center; }
@@ -370,10 +348,8 @@ section[id] {
 /* --- Responsive Design: Mobile Phones --- */
 @media (max-width: 768px) {
     
-    /* 1. Show Hamburger, Hide standard Nav Links */
-    .hamburger {
-        display: flex;
-    }
+    /* 1. Navigation & Menu */
+    .hamburger { display: flex; }
     
     .nav-links {
         display: none;
@@ -403,70 +379,74 @@ section[id] {
         pointer-events: auto;
     }
 
-    /* 2. Hamburger Animation */
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
+    .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    .glass-nav .btn-primary { display: none; } /* Hide desktop donate button */
+    .floating-donate-btn { 
+        display: flex; 
+        bottom: 15px; 
+        right: 15px; 
+        padding: 0.8rem 1.2rem; 
+        font-size: 0.9rem;
     }
 
-    /* 3. Hide the Navbar Donate Button & Show Floating Button */
-    .glass-nav .btn-primary {
-        display: none;
+    /* 2. Global & Section Padding */
+    .glass-nav { padding: 1rem 1.5rem; }
+    .logo-img { height: 50px; }
+    .logo span { font-size: 1rem; }
+    .section, .story-section, .testimonial-section { 
+        padding: 4rem 1.5rem; 
+        padding-bottom: 100px; /* Prevents floating button from covering text */
     }
     
-    .floating-donate-btn {
-        display: flex;
-    }
-
-    /* ======================================================= */
-    /*  HERO FIX: Reduce padding & make blob responsive       */
-    /* ======================================================= */
+    /* 3. Hero Section Fixes */
     .hero {
-        padding: 8rem 1.5rem 3rem; /* Was 8rem 4rem - now only 24px sides */
-        min-height: auto; /* Allow hero to shrink to fit content */
+        padding: 7rem 1.2rem 3rem; /* Reduced side padding to 1.2rem */
+        min-height: auto;
     }
 
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2.5rem; /* Tighter gap between text and image */
-        padding: 0; /* Ensure no extra inner padding */
+        gap: 2rem;
+        padding: 0;
     }
 
     .hero-text h1 {
-        font-size: 2.4rem; /* Was 3rem - reduced to fit narrow screens */
+        font-size: 2.1rem; /* Safer size for small screens */
         letter-spacing: -1px;
         line-height: 1.15;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
     .hero-text p {
-        font-size: 1rem;
+        font-size: 0.95rem;
         margin: 0 auto 2rem;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
     .hero-buttons { 
         justify-content: center;
-        flex-wrap: wrap; /* Prevents buttons from overflowing */
+        flex-wrap: wrap;
         gap: 0.8rem;
+        margin-bottom: 60px; /* Pushes buttons up so floating button doesn't cover them */
     }
 
     .hero-visual { 
-        margin-top: 1rem; /* Was 3rem - reduces vertical push */
+        margin-top: 1rem;
         justify-content: center;
-        width: 100%; /* Force container to respect parent width */
+        width: 100%;
     }
 
     .blob-container {
-        /* Responsive sizing - never wider than the screen */
         width: 100%;
-        max-width: 320px; /* Caps the size on larger phones */
-        height: 380px;    /* Proportional height */
-        margin: 0 auto;   /* Centers it */
+        max-width: 300px; /* Slightly smaller to ensure it fits */
+        height: 350px;
+        margin: 0 auto;
     }
 
     .location-badge { 
@@ -474,28 +454,19 @@ section[id] {
         transform: translateX(-50%); 
         bottom: -20px; 
         width: max-content;
-        max-width: 90vw; /* Prevents badge from stretching past viewport */
+        max-width: 90vw;
         font-size: 0.85rem;
         padding: 0.8rem 1.2rem;
     }
+    .badge-subtitle { font-size: 0.8rem; }
 
-    .badge-subtitle {
-        font-size: 0.8rem;
-    }
-
-    /* ======================================================= */
-    /*  Rest of the mobile adjustments                        */
-    /* ======================================================= */
-    .glass-nav { padding: 1rem 1.5rem; }
-    .logo-img { height: 50px; }
-    .logo span { font-size: 1rem; }
+    /* 4. Other Sections */
     .programs-grid { grid-template-columns: 1fr; }
-    .section, .story-section, .testimonial-section { padding: 4rem 1.5rem; }
     .story-text h2 { font-size: 2.2rem; }
     .leadership-grid { grid-template-columns: 1fr; }
     .impact-grid { grid-template-columns: 1fr; }
     .footer-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
     .footer-brand { margin: 0 auto; }
     .testimonial-section blockquote { font-size: 1.3rem; }
-    .footer { padding: 3rem 1.5rem 1.5rem; }
+    .footer { padding: 3rem 1.5rem 100px; } /* Extra bottom padding so footer isn't covered */
 }
