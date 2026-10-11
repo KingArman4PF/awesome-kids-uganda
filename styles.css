@@ -31,9 +31,14 @@ body {
 
 /* --- Global Section Spacing --- */
 .section {
-    padding: 5rem 4rem; /* Reduced from 8rem to prevent excessive scrolling */
+    padding: 5rem 4rem;
     max-width: 1300px;
     margin: 0 auto;
+}
+
+/* Fix for navbar covering section headers when clicking links */
+section[id] {
+    scroll-margin-top: 100px;
 }
 
 /* --- Navigation --- */
@@ -116,34 +121,35 @@ body {
 .section-header h2 { font-size: 2.2rem; color: var(--dark-blue); margin-bottom: 0.5rem; }
 .section-header p { color: var(--text-gray); font-size: 1rem; }
 
-/* --- Team Sections (Hierarchy & Spacing) --- */
+/* --- Team Sections --- */
 .leadership-grid { 
     display: grid; 
-    grid-template-columns: repeat(3, 1fr); /* 3 in a row for leadership */
-    gap: 1.5rem; 
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem; 
 }
 
-.team-card.horizontal { 
+.team-card { 
     background: var(--white); 
-    padding: 1.5rem; 
+    padding: 2rem; 
     border-radius: 20px; 
     box-shadow: var(--shadow-soft); 
     display: flex; 
-    flex-direction: column; /* Stack vertically for cleaner look */
+    flex-direction: column;
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.team-card.horizontal:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
 
 .team-img-wrapper { 
-    width: 120px; 
-    height: 120px; 
-    border-radius: 50%; /* Circular avatars */
+    width: 140px; 
+    height: 140px; 
+    border-radius: 50%;
     overflow: hidden; 
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border: 4px solid var(--bg-baby-blue);
+    flex-shrink: 0;
 }
 
 .team-img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
@@ -154,11 +160,11 @@ body {
     display: inline-block;
     background: var(--accent-yellow);
     color: var(--dark-blue);
-    padding: 0.2rem 0.8rem;
+    padding: 0.2rem 1rem;
     border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 700;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 .team-bio { font-size: 0.85rem; color: var(--text-gray); line-height: 1.5; }
 
@@ -179,23 +185,22 @@ body {
 /* --- What We Do (Programs Grid) --- */
 .programs-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* The minmax fix */
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .program-card {
     background: var(--white);
-    padding: 2rem;
     border-radius: 20px;
     box-shadow: var(--shadow-soft);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid var(--primary-blue); /* Eye-catching accent */
-}
-
-.program-card:nth-child(even) {
-    border-top-color: var(--accent-yellow); /* Alternate colors */
+    overflow: hidden; /* Keeps image contained */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px; /* Prevents card from collapsing */
 }
 
 .program-card:hover {
@@ -203,14 +208,41 @@ body {
     box-shadow: var(--shadow-hover);
 }
 
+.program-image-wrapper {
+    width: 100%;
+    height: 200px; /* Fixed height */
+    overflow: hidden;
+    flex-shrink: 0; /* Prevents wrapper from shrinking */
+    background-color: #e2e8f0; /* Fallback color if image is missing */
+}
+
+.program-image {
+    display: block; /* Removes bottom spacing */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.program-card:hover .program-image {
+    transform: scale(1.05);
+}
+
+.program-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .program-icon {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .program-icon.bg-blue { background: #dbeafe; color: var(--primary-blue); }
@@ -233,7 +265,7 @@ body {
 .impact-text { margin-bottom: 3rem; }
 .impact-text h2 { font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 0.5rem; }
 .impact-text p { color: var(--text-gray); max-width: 600px; margin: 0 auto; }
-.impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.impact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
 .impact-card { background: var(--white); padding: 2rem 1rem; border-radius: 20px; box-shadow: var(--shadow-soft); }
 .impact-card h3 { font-size: 2.2rem; color: var(--accent-yellow); font-weight: 800; margin-bottom: 0.5rem; }
 .impact-card p { font-size: 0.9rem; color: var(--text-gray); font-weight: 600; }
@@ -267,12 +299,12 @@ body {
 @media (max-width: 1024px) {
     .hero-text h1 { font-size: 3rem; }
     .blob-container { width: 350px; height: 450px; }
-    .programs-grid { grid-template-columns: repeat(2, 1fr); }
+    .programs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .story-container { grid-template-columns: 1fr; text-align: center; }
     .story-icons { justify-content: center; }
     .story-image-wrapper { height: 300px; }
-    .leadership-grid { grid-template-columns: repeat(2, 1fr); }
-    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+    .leadership-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .footer-container { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
