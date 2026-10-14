@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 5. ACTIVITIES CAROUSEL (Single-Lane Slideshow) ---
+    // --- 5. ACTIVITIES CAROUSEL (Single-Lane Slideshow with Auto-Scroll & Seamless Loop) ---
     const carouselViewport = document.getElementById('carouselViewport');
     const carouselPrev = document.getElementById('carouselPrev');
     const carouselNext = document.getElementById('carouselNext');
@@ -89,6 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (carouselViewport && carouselPrev && carouselNext && carouselDots && activityCards.length > 0) {
         
+        let autoSlideTimer = null;
+        let resumeTimer = null;
+        let isLooping = false; // Prevents overlapping loops
+        const AUTO_SLIDE_INTERVAL = 3500; // Auto-advance every 3.5 seconds
+        const RESUME_DELAY = 6000;        // Resume auto-scroll 6s after user interaction
+
         // --- Build dots dynamically based on number of cards ---
         activityCards.forEach((_, index) => {
             const dot = document.createElement('button');
@@ -102,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     left: card.offsetLeft - carouselViewport.offsetLeft - 8,
                     behavior: 'smooth'
                 });
+                pauseAutoScroll();
             });
             
             carouselDots.appendChild(dot);
@@ -109,35 +116,105 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const dots = carouselDots.querySelectorAll('.dot');
 
+        // --- Helper: Card width + gap between cards ---
+        function getStepSize() {
+            return activityCards[0].offsetWidth + 24; // 24px gap
+        }
+
+        // --- Helper: Check if we're at the end ---
+        function isAtEnd() {
+            const maxScroll = carouselViewport.scrollWidth - carouselViewport.clientWidth;
+            return carouselViewport.scrollLeft >= maxScroll - 10;
+        }
+
+        // --- Loop back to the first card seamlessly ---
+        function loopBackToStart() {
+            if (isLooping) return; // Prevent double loops
+            isLooping = true;
+
+            // Smoothly scroll to the very end
+            carouselViewport.scrollTo({ left: carouselViewport.scrollWidth, behavior: 'smooth' });
+            
+            // After the smooth scroll finishes, silently jump to the start
+            setTimeout(() => {
+                carouselViewport.scrollTo({ left: 0, behavior: 'auto' });
+                isLooping = false;
+            }, 900);
+        }
+
+        // --- Advance one card (with seamless loop) ---
+        function advanceOneCard() {
+            if (isLooping) return; // Skip if we're mid-loop
+            if (isAtEnd()) {
+                loopBackToStart();
+            } else {
+                carouselViewport.scrollBy({ left: getStepSize(), behavior: 'smooth' });
+            }
+        }
+
+        // --- Auto-scroll controller ---
+        function startAutoScroll() {
+            if (autoSlideTimer) return; // Already running
+            autoSlideTimer = setInterval(advanceOneCard, AUTO_SLIDE_INTERVAL);
+        }
+
+        function stopAutoScroll() {
+            if (autoSlideTimer) {
+                clearInterval(autoSlideTimer);
+                autoSlideTimer = null;
+            }
+        }
+
+        function pauseAutoScroll() {
+            stopAutoScroll();
+            if (resumeTimer) clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(startAutoScroll, RESUME_DELAY);
+        }
+
+        // --- Pause auto-scroll on hover (desktop) ---
+        carouselViewport.addEventListener('mouseenter', stopAutoScroll);
+        carouselViewport.addEventListener('mouseleave', startAutoScroll);
+
         // --- Arrow navigation ---
         carouselPrev.addEventListener('click', () => {
-            const cardWidth = activityCards[0].offsetWidth + 24;
-            carouselViewport.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            carouselViewport.scrollBy({ left: -getStepSize(), behavior: 'smooth' });
+            pauseAutoScroll();
         });
 
         carouselNext.addEventListener('click', () => {
-            const cardWidth = activityCards[0].offsetWidth + 24;
-            carouselViewport.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            if (isAtEnd()) {
+                loopBackToStart();
+            } else {
+                carouselViewport.scrollBy({ left: getStepSize(), behavior: 'smooth' });
+            }
+            pauseAutoScroll();
         });
 
         // --- Update dots & arrow states based on scroll position ---
         function updateCarouselState() {
             const scrollLeft = carouselViewport.scrollLeft;
-            const cardWidth = activityCards[0].offsetWidth + 24;
+            const step = getStepSize();
             const maxScroll = carouselViewport.scrollWidth - carouselViewport.clientWidth;
 
-            const activeIndex = Math.round(scrollLeft / cardWidth);
+            const activeIndex = Math.min(
+                Math.round(scrollLeft / step),
+                activityCards.length - 1
+            );
 
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === activeIndex);
             });
 
+            // Fade arrows at edges
             carouselPrev.style.opacity = scrollLeft <= 5 ? '0.4' : '1';
             carouselNext.style.opacity = scrollLeft >= maxScroll - 5 ? '0.4' : '1';
         }
 
         carouselViewport.addEventListener('scroll', updateCarouselState);
         updateCarouselState();
+
+        // --- Start auto-scrolling on load ---
+        startAutoScroll();
     }
 
 
