@@ -46,16 +46,31 @@ body { font-family: var(--font-main); background-color: var(--bg-light); color: 
 .glass-nav {
     position: fixed; top: 0; width: 100%; z-index: 1000;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 0.8rem 4rem; min-height: 100px;
-    background: rgba(92, 147, 232, 0.95); /* Shirt blue with transparency */
+    padding: 0 4rem; 
+    height: 100px; /* Fixed height to prevent growing */
+    background: rgba(92, 147, 232, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.logo { display: flex; align-items: center; gap: 15px; }
-.logo-img { height: 80px; width: auto; object-fit: contain; }
+/* Make logo clickable without changing look */
+.logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Increased logo size */
+.logo-img { 
+    height: 95px; /* Increased from 80px */
+    width: auto; 
+    object-fit: contain; 
+}
+
 .logo-text { display: flex; flex-direction: column; justify-content: center; line-height: 1.1; }
 .logo-text span:first-child { font-weight: 800; font-size: 1.3rem; color: var(--white); }
 .logo-tagline { font-size: 0.75rem; color: var(--accent-yellow); font-weight: 600; font-style: italic; letter-spacing: 0.5px; margin-top: 2px; }
@@ -268,20 +283,56 @@ body { font-family: var(--font-main); background-color: var(--bg-light); color: 
 
 @media (max-width: 768px) {
     html { scroll-padding-top: 20px; }
+    
+    /* Hamburger Menu Show */
     .hamburger { display: flex; }
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(92, 147, 232, 0.98); padding: 2rem; flex-direction: column; align-items: center; gap: 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border-radius: 0 0 20px 20px; transform: translateY(-10px); opacity: 0; pointer-events: none; transition: all 0.3s ease; }
-    .nav-links.active { display: flex; transform: translateY(0); opacity: 1; pointer-events: auto; }
+    
+    /* FIXED MOBILE DROPDOWN */
+    .nav-links { 
+        display: flex; 
+        flex-direction: column;
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        width: 100%; 
+        background: rgba(92, 147, 232, 0.98); 
+        padding: 2rem; 
+        align-items: center; 
+        gap: 1.5rem; 
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2); 
+        border-radius: 0 0 20px 20px; 
+        /* Use transform & opacity for smooth reliable animation */
+        transform: translateY(-10px); 
+        opacity: 0; 
+        visibility: hidden; 
+        transition: all 0.3s ease; 
+        z-index: 999;
+    }
+    
+    .nav-links.active { 
+        transform: translateY(0); 
+        opacity: 1; 
+        visibility: visible; 
+    }
+    
+    /* Hamburger X animation */
     .hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    
+    /* Navbar adjustments */
+    .glass-nav { padding: 0 1.5rem; height: 80px; }
     .glass-nav .btn-primary { display: none; }
-    .floating-donate-btn { display: flex; bottom: 15px; right: 15px; padding: 0.8rem 1.2rem; font-size: 0.9rem; }
-    .glass-nav { padding: 0.8rem 1.5rem; min-height: 80px; }
-    .logo-img { height: 60px; }
+    
+    /* Logo adjustments for mobile */
+    .logo-img { height: 65px; }
     .logo-text span:first-child { font-size: 1.1rem; }
     .logo-tagline { font-size: 0.65rem; }
+    
+    .floating-donate-btn { display: flex; bottom: 15px; right: 15px; padding: 0.8rem 1.2rem; font-size: 0.9rem; }
+    
     .section, .story-section, .testimonial-section { padding: 4rem 1.5rem; padding-bottom: 100px; }
-    .hero { padding: 9rem 1.2rem 3rem; min-height: auto; }
+    .hero { padding: 8rem 1.2rem 3rem; min-height: auto; }
     .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; padding: 0; }
     .hero-text h1 { font-size: 2.1rem; letter-spacing: -1px; line-height: 1.15; overflow-wrap: break-word; word-wrap: break-word; }
     .hero-text p { font-size: 0.95rem; margin: 0 auto 2rem; overflow-wrap: break-word; word-wrap: break-word; }
