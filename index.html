@@ -6,6 +6,9 @@
     <title>Awesome Kids Uganda</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Social Icons -->
+    <!-- NEW LINE -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -32,7 +35,7 @@
             <a href="#contact">Contact</a>
         </div>
 
-        <button class="btn btn-primary glow-button">
+        <button class="btn btn-primary glow-button donate-trigger">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             Donate Now
         </button>
@@ -61,8 +64,8 @@
                     We improve the lives of orphans and other vulnerable children, adolescents, and vulnerable families through love, care, education, and empowerment.
                 </p>
                 <div class="hero-buttons reveal">
-                    <button class="btn btn-solid">Donate Now</button>
-                    <button class="btn btn-outline">Get Involved</button>
+                    <button class="btn btn-solid donate-trigger">Donate Now</button>
+                    <a href="#contact" class="btn btn-outline">Get Involved</a>
                 </div>
             </div>
 
@@ -124,7 +127,7 @@
     </section>
 
     <!-- Our Story Section -->
-    <section id="about" class="story-section bg-baby-blue">
+    <section id="about" class="story-section bg-silhouette">
         <div class="decor-shape decor-square"></div>
         <div class="decor-shape decor-diamond"></div>
         
@@ -249,117 +252,31 @@
         </div>
 
         <div class="activities-carousel reveal">
-            
             <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
 
             <div class="carousel-viewport" id="carouselViewport">
                 <div class="carousel-track" id="carouselTrack">
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-1.jpg" alt="Learning day" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Education</span>
-                            <p class="gallery-caption">Learning day at New Hope Junior School</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-2.jpg" alt="Health outreach" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Health</span>
-                            <p class="gallery-caption">Community health camp</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-3.jpg" alt="Food distribution" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Community</span>
-                            <p class="gallery-caption">Food distribution to families</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-4.jpg" alt="Baking training" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Empowerment</span>
-                            <p class="gallery-caption">Vocational skills training</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-5.jpg" alt="Village outreach" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Community</span>
-                            <p class="gallery-caption">Village outreach day</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-6.jpg" alt="Scholastic materials" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Education</span>
-                            <p class="gallery-caption">Scholastic materials handover</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-7.jpg" alt="Dignity kits" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Health</span>
-                            <p class="gallery-caption">Dignity kits for girls</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-8.jpg" alt="Skills workshop" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Empowerment</span>
-                            <p class="gallery-caption">Caregiver livelihood workshop</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-9.jpg" alt="Reading together" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Education</span>
-                            <p class="gallery-caption">Reading together</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-10.jpg" alt="Feeding program" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Community</span>
-                            <p class="gallery-caption">School feeding program</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-11.jpg" alt="Medical checkup" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Health</span>
-                            <p class="gallery-caption">Free medical checkups</p>
-                        </div>
-                    </div>
-
-                    <div class="activity-card">
-                        <img src="assets/gallery/gallery-12.jpg" alt="Celebration day" class="activity-img">
-                        <div class="activity-overlay">
-                            <span class="gallery-tag">Empowerment</span>
-                            <p class="gallery-caption">A day of celebration</p>
-                        </div>
-                    </div>
-
+                    <!-- Gallery Cards 1-12 -->
+                    <div class="activity-card"><img src="assets/gallery/gallery-1.jpg" alt="Learning day" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Education</span><p class="gallery-caption">Learning day at New Hope Junior School</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-2.jpg" alt="Health outreach" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Health</span><p class="gallery-caption">Community health camp</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-3.jpg" alt="Food distribution" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Community</span><p class="gallery-caption">Food distribution to families</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-4.jpg" alt="Baking training" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Empowerment</span><p class="gallery-caption">Vocational skills training</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-5.jpg" alt="Village outreach" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Community</span><p class="gallery-caption">Village outreach day</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-6.jpg" alt="Scholastic materials" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Education</span><p class="gallery-caption">Scholastic materials handover</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-7.jpg" alt="Dignity kits" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Health</span><p class="gallery-caption">Dignity kits for girls</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-8.jpg" alt="Skills workshop" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Empowerment</span><p class="gallery-caption">Caregiver livelihood workshop</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-9.jpg" alt="Reading together" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Education</span><p class="gallery-caption">Reading together</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-10.jpg" alt="Feeding program" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Community</span><p class="gallery-caption">School feeding program</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-11.jpg" alt="Medical checkup" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Health</span><p class="gallery-caption">Free medical checkups</p></div></div>
+                    <div class="activity-card"><img src="assets/gallery/gallery-12.jpg" alt="Celebration day" class="activity-img"><div class="activity-overlay"><span class="gallery-tag">Empowerment</span><p class="gallery-caption">A day of celebration</p></div></div>
                 </div>
             </div>
 
             <button class="carousel-arrow next" id="carouselNext" aria-label="Next">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
-
         </div>
 
         <div class="carousel-dots" id="carouselDots"></div>
@@ -377,22 +294,10 @@
                 <p>Since 2014, we have been dedicated to transforming the lives of vulnerable children and families in Uganda.</p>
             </div>
             <div class="impact-grid">
-                <div class="impact-card">
-                    <h3>10,000+</h3>
-                    <p>Children Empowered</p>
-                </div>
-                <div class="impact-card">
-                    <h3>50+</h3>
-                    <p>Communities Reached</p>
-                </div>
-                <div class="impact-card">
-                    <h3>30+</h3>
-                    <p>Partners & Supporters</p>
-                </div>
-                <div class="impact-card">
-                    <h3>2014</h3>
-                    <p>Year of Establishment</p>
-                </div>
+                <div class="impact-card"><h3>10,000+</h3><p>Children Empowered</p></div>
+                <div class="impact-card"><h3>50+</h3><p>Communities Reached</p></div>
+                <div class="impact-card"><h3>30+</h3><p>Partners & Supporters</p></div>
+                <div class="impact-card"><h3>2014</h3><p>Year of Establishment</p></div>
             </div>
         </div>
     </section>
@@ -400,85 +305,32 @@
     <!-- Testimonials Section -->
     <section class="testimonial-section">
         <div class="testimonial-container reveal">
-            <div class="quote-icon">"</div>
-            
+            <div class="quote-icon">Testimonials</div>
             <div class="testimonial-slider">
-                
                 <div class="testimonial-slide active">
-                    <blockquote>
-                        When my husband passed, I thought my children would drop out of school. Awesome Kids Uganda stepped in, paid their fees, and today my daughter is in secondary school. They gave my family a second chance.
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: var(--accent-yellow); color: var(--dark-blue);">SN</div>
-                        <div>
-                            <p class="quote-author">Sarah Namusoke</p>
-                            <p class="quote-role">Beneficiary Mother, Wakiso District</p>
-                        </div>
-                    </div>
+                    <blockquote>When my husband passed, I thought my children would drop out of school. Awesome Kids Uganda stepped in, paid their fees, and today my daughter is in secondary school. They gave my family a second chance.</blockquote>
+                    <div class="testimonial-author"><div class="testimonial-avatar" style="background: var(--accent-yellow); color: var(--dark-blue);">SN</div><div><p class="quote-author">Sarah Namusoke</p><p class="quote-role">Beneficiary Mother, Wakiso District</p></div></div>
                 </div>
-
                 <div class="testimonial-slide">
-                    <blockquote>
-                        Before Awesome Kids Uganda helped me, I had lost hope. Now I am in school, I have friends, and I dream of becoming a teacher. Thank you for believing in me.
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: #dbeafe; color: var(--primary-blue);">A</div>
-                        <div>
-                            <p class="quote-author">Aisha</p>
-                            <p class="quote-role">Student, Age 12</p>
-                        </div>
-                    </div>
+                    <blockquote>Before Awesome Kids Uganda helped me, I had lost hope. Now I am in school, I have friends, and I dream of becoming a teacher. Thank you for believing in me.</blockquote>
+                    <div class="testimonial-author"><div class="testimonial-avatar" style="background: #dbeafe; color: var(--primary-blue);">A</div><div><p class="quote-author">Aisha</p><p class="quote-role">Student, Age 12</p></div></div>
                 </div>
-
                 <div class="testimonial-slide">
-                    <blockquote>
-                        Awesome Kids Uganda is a true partner in our community. Their impact is visible and life-changing. They don't just help children — they strengthen entire families.
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: var(--primary-blue); color: var(--white);">LL</div>
-                        <div>
-                            <p class="quote-author">Local Leader</p>
-                            <p class="quote-role">Community Partner, Kyengera</p>
-                        </div>
-                    </div>
+                    <blockquote>Awesome Kids Uganda is a true partner in our community. Their impact is visible and life-changing. They don't just help children — they strengthen entire families.</blockquote>
+                    <div class="testimonial-author"><div class="testimonial-avatar" style="background: var(--primary-blue); color: var(--white);">LL</div><div><p class="quote-author">Local Leader</p><p class="quote-role">Community Partner, Kyengera</p></div></div>
                 </div>
-
                 <div class="testimonial-slide">
-                    <blockquote>
-                        I have watched this organization transform lives. The health camps they run reach families who have never seen a doctor before. Their work is truly from the heart.
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: var(--accent-yellow); color: var(--dark-blue);">EO</div>
-                        <div>
-                            <p class="quote-author">Emmanuel Okello</p>
-                            <p class="quote-role">Community Health Worker</p>
-                        </div>
-                    </div>
+                    <blockquote>I have watched this organization transform lives. The health camps they run reach families who have never seen a doctor before. Their work is truly from the heart.</blockquote>
+                    <div class="testimonial-author"><div class="testimonial-avatar" style="background: var(--accent-yellow); color: var(--dark-blue);">EO</div><div><p class="quote-author">Emmanuel Okello</p><p class="quote-role">Community Health Worker</p></div></div>
                 </div>
-
                 <div class="testimonial-slide">
-                    <blockquote>
-                        They gave our children uniforms, books, and even food. We are so grateful for the love and support. Our children now have hope for a brighter future.
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar" style="background: #dbeafe; color: var(--primary-blue);">NM</div>
-                        <div>
-                            <p class="quote-author">Nakato Mary</p>
-                            <p class="quote-role">Parent, Wakiso District</p>
-                        </div>
-                    </div>
+                    <blockquote>They gave our children uniforms, books, and even food. We are so grateful for the love and support. Our children now have hope for a brighter future.</blockquote>
+                    <div class="testimonial-author"><div class="testimonial-avatar" style="background: #dbeafe; color: var(--primary-blue);">NM</div><div><p class="quote-author">Nakato Mary</p><p class="quote-role">Parent, Wakiso District</p></div></div>
                 </div>
-
             </div>
-
             <div class="testimonial-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-                <span class="dot" data-slide="3"></span>
-                <span class="dot" data-slide="4"></span>
+                <span class="dot active" data-slide="0"></span><span class="dot" data-slide="1"></span><span class="dot" data-slide="2"></span><span class="dot" data-slide="3"></span><span class="dot" data-slide="4"></span>
             </div>
-
         </div>
     </section>
 
@@ -490,34 +342,16 @@
         </div>
         <div class="leadership-grid">
             <div class="team-card reveal">
-                <div class="team-img-wrapper">
-                    <img src="assets/team-julius.jpg" alt="Mugabe Julius Kataha" class="team-img">
-                </div>
-                <div class="team-info">
-                    <h3>Mugabe Julius Kataha</h3>
-                    <p class="team-role">Project Coordinator</p>
-                    <p class="team-bio">Leads and coordinates project activities to ensure smooth implementation and maximum impact in our communities.</p>
-                </div>
+                <div class="team-img-wrapper"><img src="assets/team-julius.jpg" alt="Mugabe Julius Kataha" class="team-img"></div>
+                <div class="team-info"><h3>Mugabe Julius Kataha</h3><p class="team-role">Project Coordinator</p><p class="team-bio">Leads and coordinates project activities to ensure smooth implementation and maximum impact in our communities.</p></div>
             </div>
             <div class="team-card reveal">
-                <div class="team-img-wrapper">
-                    <img src="assets/team-natasha.jpg" alt="Natasha Victoria Nabbowa" class="team-img">
-                </div>
-                <div class="team-info">
-                    <h3>Natasha Victoria Nabbowa</h3>
-                    <p class="team-role">Finance Officer</p>
-                    <p class="team-bio">Manages financial resources with transparency and integrity to support our programs and beneficiaries.</p>
-                </div>
+                <div class="team-img-wrapper"><img src="assets/team-natasha.jpg" alt="Natasha Victoria Nabbowa" class="team-img"></div>
+                <div class="team-info"><h3>Natasha Victoria Nabbowa</h3><p class="team-role">Finance Officer</p><p class="team-bio">Manages financial resources with transparency and integrity to support our programs and beneficiaries.</p></div>
             </div>
             <div class="team-card reveal">
-                <div class="team-img-wrapper">
-                    <img src="assets/team-josephine.jpg" alt="Nankabirwa Josephine" class="team-img">
-                </div>
-                <div class="team-info">
-                    <h3>Nankabirwa Josephine</h3>
-                    <p class="team-role">Education Officer</p>
-                    <p class="team-bio">Supports learning and education programs to ensure every child has access to quality education.</p>
-                </div>
+                <div class="team-img-wrapper"><img src="assets/team-josephine.jpg" alt="Nankabirwa Josephine" class="team-img"></div>
+                <div class="team-info"><h3>Nankabirwa Josephine</h3><p class="team-role">Education Officer</p><p class="team-bio">Supports learning and education programs to ensure every child has access to quality education.</p></div>
             </div>
         </div>
     </section>
@@ -525,25 +359,44 @@
     <!-- Footer -->
     <footer id="contact" class="footer">
         <div class="footer-container">
+            <!-- Brand Column -->
             <div class="footer-brand">
                 <img src="assets/logo.png" alt="Awesome Kids Uganda Logo" class="footer-logo">
                 <p class="footer-tagline">Every Child Matters</p>
                 <p class="footer-desc">Building brighter futures through education, care, and opportunity.</p>
+                
+                <!-- Social Icons -->
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/awesomekidsuganda" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/awesomekidsuganda992" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/AwesomeUganda" target="_blank" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <a href="#home">Home</a>
-                <a href="#about">About Us</a>
-                <a href="#programs">Our Programs</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#team">Our Team</a>
-            </div>
+            
+            <!-- Contact Information Column -->
             <div class="footer-contact">
                 <h4>Contact Us</h4>
-                <p>Nabaziza Ward, Kyengera Town Council</p>
-                <p>Wakiso District, Uganda</p>
-                <p>+256 700 123 456</p>
-                <p>info@awesomekidsuganda.org</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nabaziza Ward, Kyengera Town Council, Wakiso District, Uganda</p>
+                <p><i class="fas fa-phone-alt"></i> +256 792 647 282</p>
+                <p><i class="fas fa-phone-alt"></i> +256 700 307 385</p>
+                <p><i class="fas fa-envelope"></i> info@awesomekidsuganda.org</p>
+            </div>
+            
+            <!-- Contact Form Column -->
+            <div class="footer-form">
+                <h4>Send a Message</h4>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="3" placeholder="How can we help?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-btn">Send Message</button>
+                </form>
             </div>
         </div>
         <div class="footer-bottom">
@@ -551,10 +404,27 @@
         </div>
     </footer>
 
-    <a href="#contact" class="floating-donate-btn">
+    <!-- Floating Donate Button (Mobile) -->
+    <button class="floating-donate-btn donate-trigger">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
         Donate
-    </a>
+    </button>
+
+    <!-- Donation Modal -->
+    <div class="modal-overlay" id="donateModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-icon">💛</div>
+            <h2>Make a Difference Today</h2>
+            <p>Your generous donation helps us provide education, healthcare, and hope to vulnerable children in Uganda.</p>
+            <div class="modal-bank-details">
+                <p><strong>Mobile Money (MTN):</strong> 0792647282</p>
+                <p><strong>Mobile Money (Airtel):</strong> 0700307385</p>
+                <p><strong>Bank Transfer:</strong> Contact us at info@awesomekidsuganda.org for details.</p>
+            </div>
+            <p class="modal-thankyou">Thank you for your support!</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
