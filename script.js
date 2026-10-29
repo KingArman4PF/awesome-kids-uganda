@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
 
-    // --- 2. Parallax Effect on Floating Abstract Shapes ---
+    // --- 2. Parallax Effect ---
     const floatingElements = document.querySelectorAll('.floating-element');
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
@@ -27,12 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. Hamburger Menu Toggle ---
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
-    
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navLinks.classList.toggle('active');
     });
-    
     const mobileLinks = navLinks.querySelectorAll('a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -42,20 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 4. SCROLLSPY: Update Active Nav Link on Scroll ---
+    // --- 4. SCROLLSPY ---
     const sections = document.querySelectorAll('section[id]');
     const navLinksAll = document.querySelectorAll('.nav-links a');
-    
     window.addEventListener('scroll', () => {
         let current = '';
         const scrollY = window.scrollY;
-        
         sections.forEach(section => {
             if (scrollY >= (section.offsetTop - 150)) current = section.getAttribute('id');
         });
-        
         if (scrollY < 200) current = 'home';
-        
         navLinksAll.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
@@ -63,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 5. ACTIVITIES CAROUSEL (Single-Lane Slideshow with Auto-Scroll & Seamless Loop) ---
+    // --- 5. ACTIVITIES CAROUSEL ---
     const carouselViewport = document.getElementById('carouselViewport');
     const carouselPrev = document.getElementById('carouselPrev');
     const carouselNext = document.getElementById('carouselNext');
@@ -81,14 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const dot = document.createElement('button');
             dot.classList.add('dot');
             if (index === 0) dot.classList.add('active');
-            
             dot.addEventListener('click', () => {
                 carouselViewport.scrollTo({ left: activityCards[index].offsetLeft - carouselViewport.offsetLeft - 8, behavior: 'smooth' });
                 pauseAutoScroll();
             });
             carouselDots.appendChild(dot);
         });
-        
         const dots = carouselDots.querySelectorAll('.dot');
         const getStepSize = () => activityCards[0].offsetWidth + 24;
         const isAtEnd = () => carouselViewport.scrollLeft >= (carouselViewport.scrollWidth - carouselViewport.clientWidth) - 10;
@@ -121,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
             carouselPrev.style.opacity = carouselViewport.scrollLeft <= 5 ? '0.4' : '1';
             carouselNext.style.opacity = isAtEnd() ? '0.4' : '1';
         };
-        
         carouselViewport.addEventListener('scroll', updateCarouselState);
         updateCarouselState();
         startAutoScroll();
@@ -174,30 +165,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 8. CONTACT FORM FUNCTIONALITY ---
+    // --- 8. CONTACT FORM & GET INVOLVED INTERACTION ---
     const contactForm = document.getElementById('contactForm');
+    const subjectSelect = document.getElementById('subject');
+    const involvedCards = document.querySelectorAll('.involved-card[data-subject]');
     
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault(); 
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        if(name && email && message) {
-            const submitBtn = contactForm.querySelector('.form-btn');
-            const originalText = submitBtn.innerHTML;
-            
-            submitBtn.innerHTML = 'Sending...';
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                alert(`Thank you, ${name}! Your message has been sent successfully. We will get back to you at ${email} shortly.`);
-                contactForm.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 1000);
-        }
+    involvedCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const subject = card.getAttribute('data-subject');
+            if(subject && subjectSelect) {
+                subjectSelect.value = subject;
+            }
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
     });
+
+    if(contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if(name && email && subject && message) {
+                const submitBtn = contactForm.querySelector('.form-btn');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = 'Sending...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    alert(`Thank you, ${name}! Your message regarding "${subject}" has been sent successfully. We will get back to you at ${email} shortly.`);
+                    contactForm.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
+            }
+        });
+    }
 
 });
